@@ -1,0 +1,555 @@
+################################################################
+#GENERAL
+################################################################
+
+NET "CLK_I" TNM_NET = "CLK_I";
+#TIMESPEC TS_CLK_I = PERIOD "CLK_I" 100 MHz HIGH 50 %;
+
+NET "BTNM_I" LOC = B8 | IOSTANDARD = LVCMOS33;
+NET "CLK_I" LOC = V10 | IOSTANDARD = LVCMOS33;
+NET "reset" IOSTANDARD = LVCMOS33;
+NET "reset" LOC = A8;
+NET "BTNM_I" LOC = B8 | IOSTANDARD = LVCMOS33;
+
+################################################################
+#LEDS
+################################################################
+
+# PlanAhead Generated IO constraints 
+
+NET "LEDS[7]" IOSTANDARD = LVCMOS33;
+NET "LEDS[6]" IOSTANDARD = LVCMOS33;
+NET "LEDS[5]" IOSTANDARD = LVCMOS33;
+NET "LEDS[4]" IOSTANDARD = LVCMOS33;
+NET "LEDS[3]" IOSTANDARD = LVCMOS33;
+NET "LEDS[2]" IOSTANDARD = LVCMOS33;
+NET "LEDS[1]" IOSTANDARD = LVCMOS33;
+NET "LEDS[0]" IOSTANDARD = LVCMOS33;
+
+# PlanAhead Generated physical constraints 
+
+NET "LEDS[7]" LOC = T11;
+NET "LEDS[6]" LOC = R11;
+NET "LEDS[5]" LOC = N11;
+NET "LEDS[4]" LOC = M11;
+NET "LEDS[3]" LOC = V15;
+NET "LEDS[2]" LOC = U15;
+NET "LEDS[1]" LOC = V16;
+NET "LEDS[0]" LOC = U16;
+
+################################################################
+#SWITCHES
+################################################################
+
+NET "SW_I[0]" LOC = T10 | IOSTANDARD = LVCMOS33;
+NET "SW_I[1]" LOC = T9 | IOSTANDARD = LVCMOS33;
+NET "SW_I[2]" LOC = V9 | IOSTANDARD = LVCMOS33;
+NET "SW_I[3]" LOC = M8 | IOSTANDARD = LVCMOS33;
+NET "SW_I[4]" LOC = N8 | IOSTANDARD = LVCMOS33;
+NET "SW_I[5]" LOC = U8 | IOSTANDARD = LVCMOS33;
+NET "SW_I[6]" LOC = V8 | IOSTANDARD = LVCMOS33;
+NET "SW_I[7]" LOC = T5 | IOSTANDARD = LVCMOS33;
+
+
+################################################################
+#SEVEN SEG
+################################################################
+NET "SEG_O<0>" LOC = "T17" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L51P_M1DQ12_1, Sch Name = CA
+NET "SEG_O<1>" LOC = "T18" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L51N_M1DQ13_1, Sch Name = CB
+NET "SEG_O<2>" LOC = "U17" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L52P_M1DQ14_1, Sch Name = CC
+NET "SEG_O<3>" LOC = "U18" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L52N_M1DQ15_1, Sch Name = CD
+NET "SEG_O<4>" LOC = "M14" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L53P_1, Sch Name = CE
+NET "SEG_O<5>" LOC = "N14" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L53N_VREF_1, Sch Name = CF
+NET "SEG_O<6>" LOC = "L14" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L61P_1, Sch Name = CG
+NET "SEG_O<7>" LOC = "M13" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L61N_1, Sch Name = DP
+
+NET "AN_O<0>" LOC = "N16" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L50N_M1UDQSN_1, Sch Name = AN0
+NET "AN_O<1>" LOC = "N15" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L50P_M1UDQS_1, Sch Name = AN1
+NET "AN_O<2>" LOC = "P18" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L49N_M1DQ11_1, Sch Name = AN2
+NET "AN_O<3>" LOC = "P17" | IOSTANDARD = LVCMOS33; # Bank = 1, Pin Name = IO_L49P_M1DQ10_1, Sch Name = AN3
+
+################################################################
+#MIC
+################################################################
+
+# PlanAhead Generated IO constraints 
+
+NET "mic_nCS" IOSTANDARD = LVCMOS33;
+NET "mic_sclk" IOSTANDARD = LVCMOS33;	// mic clock
+NET "mic_sdata" IOSTANDARD = LVCMOS33;	// mic data
+
+# PlanAhead Generated physical constraints 
+
+NET "mic_nCS" LOC = T12;
+NET "mic_sclk" LOC = P11;
+NET "mic_sdata" LOC = N10;
+
+################################################################
+#SPEAKER
+################################################################
+
+NET "spkr_data_out" LOC = L3 | IOSTANDARD = LVCMOS33;
+NET "s_clk" LOC = L4 | IOSTANDARD = LVCMOS33;
+NET "LR_clk" LOC = K1 | IOSTANDARD = LVCMOS33;
+NET "m_clk" LOC = K2 | IOSTANDARD = LVCMOS33;
+
+#################################################################
+##CELL RAM
+#################################################################
+#
+##Bank = 1, pin name = IO_L46N_FOE_B_M1DQ3, Sch name = P30-OE
+#NET "mem_oe_n" IOSTANDARD = LVCMOS33;
+#NET "mem_oe_n" LOC = L18;
+##Bank = 1, pin name = IO_L47P_FWE_B_M1DQ0, Sch name = P30-WE
+#NET "mem_we_n" IOSTANDARD = LVCMOS33;
+#NET "mem_we_n" LOC = M16;
+##Bank = 1, pin name = IO_L43N_GCLK4_M1DQ5, Sch name = P30-ADV
+#NET "mem_adv_n" IOSTANDARD = LVCMOS33;
+#NET "mem_adv_n" LOC = H18;
+##Net "mem_wait" LOC = V4 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L63N, Sch name = P30-WAIT
+##Bank = 2, pin name = IO_L29P_GCLK3, Sch name = P30-CLK
+#NET "mem_clk" IOSTANDARD = LVCMOS33;
+#NET "mem_clk" LOC = R10;
+##Bank = 1, pin name = IO_L42P_GCLK7_M1UDM, Sch name = MT-CE
+#NET "mem_ce_n" IOSTANDARD = LVCMOS33;
+#NET "mem_ce_n" LOC = L15;
+##Bank = 1, pin name = IO_L47N_LDC_M1DQ1, Sch name = MT-CRE
+#NET "mem_cre" IOSTANDARD = LVCMOS33;
+#NET "mem_cre" LOC = M18;
+##Bank = 1, pin name = IO_L41P_GCLK9_IRDY1_M1RASN, Sch name = MT-UB
+#NET "mem_ub_n" IOSTANDARD = LVCMOS33;
+#NET "mem_ub_n" LOC = K15;
+##Bank = 1, pin name = IO_L41N_GCLK8_M1CASN, Sch name = MT-LB
+#NET "mem_lb_n" IOSTANDARD = LVCMOS33;
+#NET "mem_lb_n" LOC = K16;
+#
+##Bank = 1, pin name = IO_L45N_A0_M1LDQSN, Sch name = P30-A0
+#NET "cr_mem_addr[0]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[0]" LOC = K18;
+##Bank = 1, pin name = IO_L45P_A1_M1LDQS, Sch name = P30-A1
+#NET "cr_mem_addr[1]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[1]" LOC = K17;
+##Bank = 1, pin name = IO_L44N_A2_M1DQ7, Sch name = P30-A2
+#NET "cr_mem_addr[2]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[2]" LOC = J18;
+##Bank = 1, pin name = IO_L44P_A3_M1DQ6, Sch name = P30-A3
+#NET "cr_mem_addr[3]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[3]" LOC = J16;
+##Bank = 1, pin name = IO_L38N_A4_M1CLKN, Sch name = P30-A4
+#NET "cr_mem_addr[4]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[4]" LOC = G18;
+##Bank = 1, pin name = IO_L38P_A5_M1CLK, Sch name = P30-A5
+#NET "cr_mem_addr[5]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[5]" LOC = G16;
+##Bank = 1, pin name = IO_L37N_A6_M1A1, Sch name = P30-A6
+#NET "cr_mem_addr[6]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[6]" LOC = H16;
+##Bank = 1, pin name = IO_L37P_A7_M1A0, Sch name = P30-A7
+#NET "cr_mem_addr[7]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[7]" LOC = H15;
+##Bank = 1, pin name = IO_L36N_A8_M1BA1, Sch name = P30-A8
+#NET "cr_mem_addr[8]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[8]" LOC = H14;
+##Bank = 1, pin name = IO_L36P_A9_M1BA0, Sch name = P30-A9
+#NET "cr_mem_addr[9]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[9]" LOC = H13;
+##Bank = 1, pin name = IO_L35N_A10_M1A2, Sch name = P30-A10
+#NET "cr_mem_addr[10]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[10]" LOC = F18;
+##Bank = 1, pin name = IO_L35P_A11_M1A7, Sch name = P30-A11
+#NET "cr_mem_addr[11]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[11]" LOC = F17;
+##Bank = 1, pin name = IO_L34N_A12_M1BA2, Sch name = P30-A12
+#NET "cr_mem_addr[12]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[12]" LOC = K13;
+##Bank = 1, pin name = IO_L34P_A13_M1WE, Sch name = P30-A13
+#NET "cr_mem_addr[13]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[13]" LOC = K12;
+##Bank = 1, pin name = IO_L33N_A14_M1A4, Sch name = P30-A14
+#NET "cr_mem_addr[14]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[14]" LOC = E18;
+##Bank = 1, pin name = IO_L33P_A15_M1A10, Sch name = P30-A15
+#NET "cr_mem_addr[15]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[15]" LOC = E16;
+##Bank = 1, pin name = IO_L32N_A16_M1A9, Sch name = P30-A16
+#NET "cr_mem_addr[16]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[16]" LOC = G13;
+##Bank = 1, pin name = IO_L32P_A17_M1A8, Sch name = P30-A17
+#NET "cr_mem_addr[17]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[17]" LOC = H12;
+##Bank = 1, pin name = IO_L31N_A18_M1A12, Sch name = P30-A18
+#NET "cr_mem_addr[18]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[18]" LOC = D18;
+##Bank = 1, pin name = IO_L31P_A19_M1CKE, Sch name = P30-A19
+#NET "cr_mem_addr[19]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[19]" LOC = D17;
+##Bank = 1, pin name = IO_L30N_A20_M1A11, Sch name = P30-A20
+#NET "cr_mem_addr[20]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[20]" LOC = G14;
+##Bank = 1, pin name = IO_L30P_A21_M1RESET Sch name = P30-A21
+#NET "cr_mem_addr[21]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[21]" LOC = F14;
+##Bank = 1, pin name = IO_L29N_A22_M1A14, Sch name = P30-A22
+#NET "cr_mem_addr[22]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_addr[22]" LOC = C18;
+#
+##Bank = MISC, pin name = IO_L3P_D0_DIN_MISO_MISO1_2, Sch name = P30-DQ0
+#NET "cr_mem_data[0]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[0]" LOC = R13;
+##Bank = MISC, pin name = IO_L12P_D1_MISO2_2, Sch name = P30-DQ1
+#NET "cr_mem_data[1]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[1]" LOC = T14;
+##Bank = MISC, pin name = IO_L12N_D2_MISO3_2, Sch name = P30-DQ2
+#NET "cr_mem_data[2]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[2]" LOC = V14;
+##Bank = 2, pin name = IO_49P_D3, Sch name = P30-DQ3
+#NET "cr_mem_data[3]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[3]" LOC = U5;
+##Bank = 2, pin name = IO_49N_D4, Sch name = P30-DQ4
+#NET "cr_mem_data[4]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[4]" LOC = V5;
+##Bank = 2, pin name = IO_L62P_D5, Sch name = P30-DQ5
+#NET "cr_mem_data[5]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[5]" LOC = R3;
+##Bank = 2, pin name = IO_L62N_D6, Sch name = P30-DQ6
+#NET "cr_mem_data[6]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[6]" LOC = T3;
+##Bank = 2, pin name = IO_L48P_D7, Sch name = P30-DQ7
+#NET "cr_mem_data[7]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[7]" LOC = R5;
+##Bank = 2, pin name = IO_L64P_D8, Sch name = P30-DQ8
+#NET "cr_mem_data[8]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[8]" LOC = N5;
+##Bank = 2, pin name = IO_L64N_D9, Sch name = P30-DQ9
+#NET "cr_mem_data[9]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[9]" LOC = P6;
+##Bank = 2, pin name = IO_L13N_D10, Sch name = P30-DQ10
+#NET "cr_mem_data[10]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[10]" LOC = P12;
+##Bank = 2, pin name = IO_L14P_D11, Sch name = P30-DQ11
+#NET "cr_mem_data[11]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[11]" LOC = U13;
+##Bank = 2, pin name = IO_L14N_D12, Sch name = P30-DQ12
+#NET "cr_mem_data[12]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[12]" LOC = V13;
+##Bank = 2, pin name = IO_L30P_GCLK1_D13, Sch name = P30-DQ13
+#NET "cr_mem_data[13]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[13]" LOC = U10;
+##Bank = 2, pin name = IO_L31P_GCLK31_D14, Sch name = P30-DQ14
+#NET "cr_mem_data[14]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[14]" LOC = R8;
+##Bank = 2, pin name = IO_L31N_GCLK30_D15, Sch name = P30-DQ15
+#NET "cr_mem_data[15]" IOSTANDARD = LVCMOS33;
+#NET "cr_mem_data[15]" LOC = T8;
+
+
+#################################################################
+#CELLRAM2
+#################################################################
+## onBoard Cellular RAM, Numonyx StrataFlash and Numonyx Quad Flash
+#Bank = 1, pin name = IO_L46N_FOE_B_M1DQ3, Sch name = P30-OE
+NET "MEM_OEN" IOSTANDARD = LVCMOS33;
+NET "MEM_OEN" DRIVE = 2;
+NET "MEM_OEN" LOC = L18;
+#Bank = 1, pin name = IO_L47P_FWE_B_M1DQ0, Sch name = P30-WE
+NET "MEM_WEN" IOSTANDARD = LVCMOS33;
+NET "MEM_WEN" DRIVE = 2;
+NET "MEM_WEN" LOC = M16;
+#Bank = 1, pin name = IO_L43N_GCLK4_M1DQ5, Sch name = P30-ADV
+NET "MemAdv" IOSTANDARD = LVCMOS33;
+NET "MemAdv" LOC = H18;
+#Net "MemWait" LOC = V4 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L63N, Sch name = P30-WAIT
+#Bank = 2, pin name = IO_L29P_GCLK3, Sch name = P30-CLK
+NET "MemClk" IOSTANDARD = LVCMOS33;
+NET "MemClk" LOC = R10;
+
+#Bank = 1, pin name = IO_L42P_GCLK7_M1UDM, Sch name = MT-CE
+NET "RAM_CEN" IOSTANDARD = LVCMOS33;
+NET "RAM_CEN" DRIVE = 2;
+NET "RAM_CEN" LOC = L15;
+#Bank = 1, pin name = IO_L47N_LDC_M1DQ1, Sch name = MT-CRE
+NET "RamCRE" IOSTANDARD = LVCMOS33;
+NET "RamCRE" LOC = M18;
+#Bank = 1, pin name = IO_L41P_GCLK9_IRDY1_M1RASN, Sch name = MT-UB
+NET "RAM_BEN[0]" IOSTANDARD = LVCMOS33;
+NET "RAM_BEN[0]" DRIVE = 2;
+NET "RAM_BEN[0]" LOC = K15;
+#Bank = 1, pin name = IO_L41N_GCLK8_M1CASN, Sch name = MT-LB
+NET "RAM_BEN[1]" IOSTANDARD = LVCMOS33;
+NET "RAM_BEN[1]" DRIVE = 2;
+NET "RAM_BEN[1]" LOC = K16;
+
+#Net "FlashCS" LOC = L17 | IOSTANDARD = LVCMOS33; #Bank = 1, pin name = IO_L46P_FCS_B_M1DQ2, Sch name = P30-CE
+#Net "FlashRp" LOC = T4  | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L63P, Sch name = P30-RST
+
+#Net "QuadSpiFlashCS" LOC = V3  | IOSTANDARD = LVCMOS33; #Bank = MISC, pin name = IO_L65N_CSO_B_2, Sch name = CS
+#Net "QuadSpiFlashSck"  LOC = R15 | IOSTANDARD = LVCMOS33; #Bank = MISC, pin name = IO_L1P_CCLK_2, Sch name = SCK
+
+#Bank = 1, pin name = IO_L45N_A0_M1LDQSN, Sch name = P30-A0
+NET "cr_mem_addr[0]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[0]" LOC = K18;
+#Bank = 1, pin name = IO_L45P_A1_M1LDQS, Sch name = P30-A1
+NET "cr_mem_addr[1]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[1]" LOC = K17;
+#Bank = 1, pin name = IO_L44N_A2_M1DQ7, Sch name = P30-A2
+NET "cr_mem_addr[2]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[2]" LOC = J18;
+#Bank = 1, pin name = IO_L44P_A3_M1DQ6, Sch name = P30-A3
+NET "cr_mem_addr[3]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[3]" LOC = J16;
+#Bank = 1, pin name = IO_L38N_A4_M1CLKN, Sch name = P30-A4
+NET "cr_mem_addr[4]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[4]" LOC = G18;
+#Bank = 1, pin name = IO_L38P_A5_M1CLK, Sch name = P30-A5
+NET "cr_mem_addr[5]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[5]" LOC = G16;
+#Bank = 1, pin name = IO_L37N_A6_M1A1, Sch name = P30-A6
+NET "cr_mem_addr[6]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[6]" LOC = H16;
+#Bank = 1, pin name = IO_L37P_A7_M1A0, Sch name = P30-A7
+NET "cr_mem_addr[7]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[7]" LOC = H15;
+#Bank = 1, pin name = IO_L36N_A8_M1BA1, Sch name = P30-A8
+NET "cr_mem_addr[8]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[8]" LOC = H14;
+#Bank = 1, pin name = IO_L36P_A9_M1BA0, Sch name = P30-A9
+NET "cr_mem_addr[9]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[9]" LOC = H13;
+#Bank = 1, pin name = IO_L35N_A10_M1A2, Sch name = P30-A10
+NET "cr_mem_addr[10]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[10]" LOC = F18;
+#Bank = 1, pin name = IO_L35P_A11_M1A7, Sch name = P30-A11
+NET "cr_mem_addr[11]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[11]" LOC = F17;
+#Bank = 1, pin name = IO_L34N_A12_M1BA2, Sch name = P30-A12
+NET "cr_mem_addr[12]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[12]" LOC = K13;
+#Bank = 1, pin name = IO_L34P_A13_M1WE, Sch name = P30-A13
+NET "cr_mem_addr[13]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[13]" LOC = K12;
+#Bank = 1, pin name = IO_L33N_A14_M1A4, Sch name = P30-A14
+NET "cr_mem_addr[14]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[14]" LOC = E18;
+#Bank = 1, pin name = IO_L33P_A15_M1A10, Sch name = P30-A15
+NET "cr_mem_addr[15]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[15]" LOC = E16;
+#Bank = 1, pin name = IO_L32N_A16_M1A9, Sch name = P30-A16
+NET "cr_mem_addr[16]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[16]" LOC = G13;
+#Bank = 1, pin name = IO_L32P_A17_M1A8, Sch name = P30-A17
+NET "cr_mem_addr[17]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[17]" LOC = H12;
+#Bank = 1, pin name = IO_L31N_A18_M1A12, Sch name = P30-A18
+NET "cr_mem_addr[18]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[18]" LOC = D18;
+#Bank = 1, pin name = IO_L31P_A19_M1CKE, Sch name = P30-A19
+NET "cr_mem_addr[19]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[19]" LOC = D17;
+#Bank = 1, pin name = IO_L30N_A20_M1A11, Sch name = P30-A20
+NET "cr_mem_addr[20]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[20]" LOC = G14;
+#Bank = 1, pin name = IO_L30P_A21_M1RESET Sch name = P30-A21
+NET "cr_mem_addr[21]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[21]" LOC = F14;
+#Bank = 1, pin name = IO_L29N_A22_M1A14, Sch name = P30-A22
+NET "cr_mem_addr[22]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[22]" LOC = C18;
+#Bank = 1, pin name = IO_L29P_A23_M1A13, Sch name = P30-A23
+NET "cr_mem_addr[23]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[23]" LOC = C17;
+#Bank = 1, pin name = IO_L1N_A24_VREF, Sch name = P30-A24
+NET "cr_mem_addr[24]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[24]" LOC = F16;
+#Bank = 1, pin name = IO_L1P_A25, Sch name = P30-A25
+NET "cr_mem_addr[25]" IOSTANDARD = LVCMOS33;
+NET "cr_mem_addr[25]" LOC = F15;
+
+#Net "QuadSpiFlashDB<0>" LOC = T13 |  IOSTANDARD = LVCMOS33; #Dual/Quad SPI Flash DB<0>, Bank = MISC, pin name = IO_L3N_MOSI_CSI_B_MISO0_2, Sch name = SDI
+#Ram or Numonyx Paralell Flash DB<0>, or Dual/Quad SPI Flash DB<1>, Bank = MISC, pin name = IO_L3P_D0_DIN_MISO_MISO1_2, Sch name = P30-DQ0
+NET "CR_MEM_DATA[15]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[15]" LOC = R13;
+#Ram or Numonyx Paralell Flash DB<1>, or Quad SPI Flash DB<2>, Bank = MISC, pin name = IO_L12P_D1_MISO2_2, Sch name = P30-DQ1
+NET "CR_MEM_DATA[14]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[14]" LOC = T14;
+#Ram or Numonyx Paralell Flash DB<2>, or Quad SPI Flash DB<3>, Bank = MISC, pin name = IO_L12N_D2_MISO3_2, Sch name = P30-DQ2
+NET "CR_MEM_DATA[13]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[13]" LOC = V14;
+#Bank = 2, pin name = IO_49P_D3, Sch name = P30-DQ3
+NET "CR_MEM_DATA[12]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[12]" LOC = U5;
+#Bank = 2, pin name = IO_49N_D4, Sch name = P30-DQ4
+NET "CR_MEM_DATA[11]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[11]" LOC = V5;
+#Bank = 2, pin name = IO_L62P_D5, Sch name = P30-DQ5
+NET "CR_MEM_DATA[10]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[10]" LOC = R3;
+#Bank = 2, pin name = IO_L62N_D6, Sch name = P30-DQ6
+NET "CR_MEM_DATA[9]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[9]" LOC = T3;
+#Bank = 2, pin name = IO_L48P_D7, Sch name = P30-DQ7
+NET "CR_MEM_DATA[8]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[8]" LOC = R5;
+#Bank = 2, pin name = IO_L64P_D8, Sch name = P30-DQ8
+NET "CR_MEM_DATA[7]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[7]" LOC = N5;
+#Bank = 2, pin name = IO_L64N_D9, Sch name = P30-DQ9
+NET "CR_MEM_DATA[6]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[6]" LOC = P6;
+#Bank = 2, pin name = IO_L13N_D10, Sch name = P30-DQ10
+NET "CR_MEM_DATA[5]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[5]" LOC = P12;
+#Bank = 2, pin name = IO_L14P_D11, Sch name = P30-DQ11
+NET "CR_MEM_DATA[4]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[4]" LOC = U13;
+#Bank = 2, pin name = IO_L14N_D12, Sch name = P30-DQ12
+NET "CR_MEM_DATA[3]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[3]" LOC = V13;
+#Bank = 2, pin name = IO_L30P_GCLK1_D13, Sch name = P30-DQ13
+NET "CR_MEM_DATA[2]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[2]" LOC = U10;
+#Bank = 2, pin name = IO_L31P_GCLK31_D14, Sch name = P30-DQ14
+NET "CR_MEM_DATA[1]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[1]" LOC = R8;
+#Bank = 2, pin name = IO_L31N_GCLK30_D15, Sch name = P30-DQ15
+NET "CR_MEM_DATA[0]" IOSTANDARD = LVCMOS33 | PULLDOWN;
+NET "CR_MEM_DATA[0]" LOC = T8;
+
+################################################################
+#VMOD TOUCH AND VGA
+################################################################
+NET "TFT_VDDEN_O" LOC = D14; # Schematic name: TFT-EN
+NET "B[0]" LOC = C7;
+NET "B[1]" LOC = A7;
+NET "B[2]" LOC = B6;
+NET "B[3]" LOC = A6;
+NET "B[4]" LOC = C5;
+NET "B[5]" LOC = B4;
+NET "B[6]" LOC = A5;
+NET "B[7]" LOC = A4;
+NET "TFT_CLK_O" LOC = C10;
+NET "TFT_DE_O" LOC = A15;
+NET "TFT_DISP_O" LOC = C15;
+NET "G[0]" LOC = B11;
+NET "G[1]" LOC = G9;
+NET "G[2]" LOC = A11;
+NET "G[3]" LOC = F9;
+NET "G[4]" LOC = A9;
+NET "G[5]" LOC = B9;
+NET "G[6]" LOC = D8;
+NET "G[7]" LOC = C8;
+NET "TFT_BKLT_O" LOC = C14; # Schematic name: LED-EN
+NET "R[0]" LOC = E13;
+NET "R[1]" LOC = F13;
+NET "R[2]" LOC = B14;
+NET "R[3]" LOC = A14;
+NET "R[4]" LOC = C13;
+NET "R[5]" LOC = A13;
+NET "R[6]" LOC = B12;
+NET "R[7]" LOC = A12;
+NET "TP_BUSY_I" LOC = B2;
+NET "TP_CS_O" LOC = B3;
+NET "TP_DCLK_O" LOC = D11;
+NET "TP_DIN_O" LOC = D6;
+NET "TP_DOUT_I" LOC = C6;
+NET "TP_PENIRQ_I" LOC = A3;
+
+# #PlanAhead Generated IO constraints 
+
+#Created by Constraints Editor (xc6slx45-csg324-3) - 2011/04/12
+INST "R[7]" TNM = "TFT_PIXEL_BUS";
+INST "R[0]" TNM = "TFT_PIXEL_BUS";
+INST "R[1]" TNM = "TFT_PIXEL_BUS";
+INST "R[2]" TNM = "TFT_PIXEL_BUS";
+INST "R[3]" TNM = "TFT_PIXEL_BUS";
+INST "R[4]" TNM = "TFT_PIXEL_BUS";
+INST "R[5]" TNM = "TFT_PIXEL_BUS";
+INST "R[6]" TNM = "TFT_PIXEL_BUS";
+INST "B[0]" TNM = "TFT_PIXEL_BUS";
+INST "B[1]" TNM = "TFT_PIXEL_BUS";
+INST "B[2]" TNM = "TFT_PIXEL_BUS";
+INST "B[3]" TNM = "TFT_PIXEL_BUS";
+INST "B[4]" TNM = "TFT_PIXEL_BUS";
+INST "B[5]" TNM = "TFT_PIXEL_BUS";
+INST "B[6]" TNM = "TFT_PIXEL_BUS";
+INST "B[7]" TNM = "TFT_PIXEL_BUS";
+INST "TFT_CLK_O" TNM = "TFT_PIXEL_BUS";
+INST "TFT_DE_O" TNM = "TFT_PIXEL_BUS";
+INST "G[0]" TNM = "TFT_PIXEL_BUS";
+INST "G[1]" TNM = "TFT_PIXEL_BUS";
+INST "G[2]" TNM = "TFT_PIXEL_BUS";
+INST "G[3]" TNM = "TFT_PIXEL_BUS";
+INST "G[4]" TNM = "TFT_PIXEL_BUS";
+INST "G[5]" TNM = "TFT_PIXEL_BUS";
+INST "G[6]" TNM = "TFT_PIXEL_BUS";
+INST "G[7]" TNM = "TFT_PIXEL_BUS";
+TIMEGRP "TFT_PIXEL_BUS" OFFSET = OUT  AFTER "CLK_I" REFERENCE_PIN "TFT_CLK_O";
+
+# PlanAhead Generated IO constraints 
+
+NET "B[0]" IOSTANDARD = LVCMOS33;
+NET "B[1]" IOSTANDARD = LVCMOS33;
+NET "B[2]" IOSTANDARD = LVCMOS33;
+NET "B[3]" IOSTANDARD = LVCMOS33;
+NET "B[4]" IOSTANDARD = LVCMOS33;
+NET "B[5]" IOSTANDARD = LVCMOS33;
+NET "B[6]" IOSTANDARD = LVCMOS33;
+NET "B[7]" IOSTANDARD = LVCMOS33;
+NET "TFT_CLK_O" IOSTANDARD = LVCMOS33;
+NET "TFT_DE_O" IOSTANDARD = LVCMOS33;
+NET "TFT_DISP_O" IOSTANDARD = LVCMOS33;
+NET "G[0]" IOSTANDARD = LVCMOS33;
+NET "G[1]" IOSTANDARD = LVCMOS33;
+NET "G[2]" IOSTANDARD = LVCMOS33;
+NET "G[3]" IOSTANDARD = LVCMOS33;
+NET "G[4]" IOSTANDARD = LVCMOS33;
+NET "G[5]" IOSTANDARD = LVCMOS33;
+NET "G[6]" IOSTANDARD = LVCMOS33;
+NET "G[7]" IOSTANDARD = LVCMOS33;
+NET "TFT_BKLT_O" IOSTANDARD = LVCMOS33;
+NET "R[0]" IOSTANDARD = LVCMOS33;
+NET "R[1]" IOSTANDARD = LVCMOS33;
+NET "R[2]" IOSTANDARD = LVCMOS33;
+NET "R[3]" IOSTANDARD = LVCMOS33;
+NET "R[4]" IOSTANDARD = LVCMOS33;
+NET "R[5]" IOSTANDARD = LVCMOS33;
+NET "R[6]" IOSTANDARD = LVCMOS33;
+NET "R[7]" IOSTANDARD = LVCMOS33;
+NET "TFT_VDDEN_O" IOSTANDARD = LVCMOS33;
+NET "TP_BUSY_I" IOSTANDARD = LVCMOS33;
+NET "TP_CS_O" IOSTANDARD = LVCMOS33;
+NET "TP_DCLK_O" IOSTANDARD = LVCMOS33;
+NET "TP_DIN_O" IOSTANDARD = LVCMOS33;
+NET "TP_DOUT_I" IOSTANDARD = LVCMOS33;
+NET "TP_PENIRQ_I" IOSTANDARD = LVCMOS33;
+NET "B[0]" OUT_TERM = UNTUNED_75;
+NET "B[1]" OUT_TERM = UNTUNED_75;
+NET "B[2]" OUT_TERM = UNTUNED_75;
+NET "B[3]" OUT_TERM = UNTUNED_75;
+NET "B[4]" OUT_TERM = UNTUNED_75;
+NET "B[5]" OUT_TERM = UNTUNED_75;
+NET "B[6]" OUT_TERM = UNTUNED_75;
+NET "B[7]" OUT_TERM = UNTUNED_75;
+NET "TFT_CLK_O" OUT_TERM = UNTUNED_75;
+NET "TFT_DE_O" OUT_TERM = UNTUNED_75;
+NET "TFT_DISP_O" OUT_TERM = UNTUNED_75;
+NET "G[0]" OUT_TERM = UNTUNED_75;
+NET "G[1]" OUT_TERM = UNTUNED_75;
+NET "G[2]" OUT_TERM = UNTUNED_75;
+NET "G[3]" OUT_TERM = UNTUNED_75;
+NET "G[4]" OUT_TERM = UNTUNED_75;
+NET "G[5]" OUT_TERM = UNTUNED_75;
+NET "G[6]" OUT_TERM = UNTUNED_75;
+NET "G[7]" OUT_TERM = UNTUNED_75;
+NET "TFT_BKLT_O" OUT_TERM = UNTUNED_75;
+NET "R[0]" OUT_TERM = UNTUNED_75;
+NET "R[1]" OUT_TERM = UNTUNED_75;
+NET "R[2]" OUT_TERM = UNTUNED_75;
+NET "R[3]" OUT_TERM = UNTUNED_75;
+NET "R[4]" OUT_TERM = UNTUNED_75;
+NET "R[5]" OUT_TERM = UNTUNED_75;
+NET "R[6]" OUT_TERM = UNTUNED_75;
+NET "R[7]" OUT_TERM = UNTUNED_75;
+NET "TFT_VDDEN_O" OUT_TERM = UNTUNED_75;
+NET "TP_CS_O" OUT_TERM = UNTUNED_75;
+NET "TP_DCLK_O" OUT_TERM = UNTUNED_75;
+NET "TP_DIN_O" OUT_TERM = UNTUNED_75;
