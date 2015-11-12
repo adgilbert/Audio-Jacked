@@ -1,0 +1,206 @@
+#Assembly documentation of each type of instruction for custom 
+#	processor designed in ECE 3710.
+#	Authors:
+#		Thomas Becnel
+#		Andy Gilbert
+#		Calli Clark
+#		Aman Gill
+
+
+#---------------------------------------------------------------
+#	JUMP TO EXAMPLES
+#---------------------------------------------------------------
+# To see examples, uncomment ONE of these lines  of assembly by 
+#	deleting '#' from jump instruction
+
+#EXAMPLE 1: STORING VALUES FROM SWITCHES ONTO LEDS	
+# j example1	# store switch values on LEDS
+# j example2	# blink a pattern depending on state of switch[1]
+#---------------------------------------------------------------
+#---------------------------------------------------------------
+
+
+#---------------------------------------------------------------
+#	BASIC INFORMATION REGARDING SYNTAX AND USE
+#---------------------------------------------------------------
+
+#Comments:
+#comments proceed a '#', and must go at the end of the line
+	# Indentation is not an issure with comments
+
+	# Neither are blank spaces. They will not be proccessed by 
+	# the assembler.
+
+#Basic Assembly Layout:
+	#Registers are declared using a small r followed by the 
+	#	register number.
+	#Registers 13, 14, and 15 may not be used for general
+	#	purpose.
+	#Registers r1-r12: general purpose
+	#Register 'fp': 	frame pointer
+	#Register 'sp': 	stack pointer
+	#Register 'ra': 	return address for jump and link instruction
+	#Register 'zero':	always holds value of zero
+
+	#loop labels come very first, and must be followed by a colon
+	#	and space.
+
+	#-------------------------------------------------------------
+	#REGISTER OPERATIONS 
+	
+	#(Refer to 'Processor Opcodes' for full list of register type
+	#	 operations that this processor supports)
+	
+	#register opCodes such as 'add, sub, and, or, lsh' take the 
+	#	following format:
+
+	loop1: and r1 zero	# 'and' 'r1' and 'zero' to initiaze 'r1'
+
+	#operations get stored in the first register, in this case 'r1'
+
+	#-------------------------------------------------------------
+	#IMMEDIATE OPERATIONS
+	
+	#(Refer to 'Processor Opcodes' for full list of immediate type
+	#	 operations that this processor supports)
+
+	#immediates take almost the same form as registers
+	#	except have an immediate between +/- 16777215 
+	#	instead of a 2nd register
+
+	addi r3 12342 	# add this decimal number to 'r3'
+	lshi r12 15 	# shift the value in 'r12' by 15 
+
+	#-------------------------------------------------------------
+	#BRANCH TYPES
+
+	#(Refer to 'Processor Opcodes' for full list of branch type
+	#	 operations that this processor supports)
+
+	#Branches take the form of the branch type, 2 comparison 
+	#	registers, and the name of the label to branch to (without
+	#	the colon)
+
+	beq r1 r3 loop1		#if 'r1'='r3', next inst. will be loop1 line
+
+	#-------------------------------------------------------------
+	#JUMP TYPES
+
+	#(Refer to 'Processor Opcodes' for full list of jump type
+	#	 operations that this processor supports)
+
+	#jump types have custom design
+	j 	loop1		# 'j' followed by loop name is basic jump
+	jr	r3			# 'jr' can jump a line specified by a register
+	jal loop1		# 'jal' saves current line in 'ra'
+	jr 				# by not specifying a register, jr jumps using 'ra'
+
+	#-------------------------------------------------------------
+	#MEMORY ADDRESSING (LOADING/STORING)
+	# There are 4 usable types of loads and stores, register load/store
+	#	and immediate load/store
+
+	#register type load/stores use the 1st reg as register file reg
+	#	and the 2nd reg as the memory address
+	lw r3 r1 		#value from mem location from 'r1' loads into 'r3'
+	sw r3 r1 		#value from 'r3' gets stored in mem location in 'r1'
+
+	#immediate types use binary instead of decimal for ease of use
+	#	mem addresses can be copy&pasted into the code from ISE environ.
+	li r3 100010101 	#up to 24 bits of memory addressing can be used
+	si r1 1111001010
+
+
+#---------------------------------------------------------------
+#	EXAMPLES
+#---------------------------------------------------------------
+
+#This example loads values from switches to LEDS
+example1: and  r1  zero	#begin by reseting all registers used earlier
+		  and  r3  zero
+		  and  r12 zero
+		  addi r7  1000000 	# set the max value for counter
+		  addi r1  20	#'r1' holds memory address for switches
+		  addi r2  21	#'r2' holds memory address for LEDS
+		  lw   r3  r1 	#load into 'r3' the value of the switches
+		  sw   r3  r1 	#store the switch value from r3 to mem address
+		  j example1	#jump back up and do it all again
+
+#This example utilizes branch instruction to create one of two 
+#	patterns on the LEDS which is decided by the switches  
+example2: and  r1  zero	#begin by reseting all registers used earlier
+		  and  r3  zero
+		  and  r12 zero
+		  addi r4  1 	#value for switches for different LED patterns
+		  addi r1  20	#'r1' holds memory address for switches
+		  addi r2  21	#'r2' holds memory address for LEDS
+
+recalc:	  lw   r3  r1 		    #load value of switches into 'r3'
+		  beq  r3  r4   blink1  #if equal do blink1 pattern, else blink2
+		  beq  r3  zero blink2	#if switches are zero, go to blink2
+		  j recalc				#keep looking if switches aren't either
+
+# far right LED will blink on and off at rate specified by 'r7'
+blink1:	  addi r5  1 	#value for LEDS
+		  sw   r5  r1   #store a lit LED 
+		  jal counter	#stall and count
+		  and  r5  zero 
+		  sw   r5  r1   #store a dark LED
+		  jal counter	#stall and count
+		  j recalc		#after one blink check the switches	
+
+blink2:	  addi r5  231  #middle LEDS off, others on
+		  addi r8  24	#middle LEDS on, others off
+		  sw   r5  r1   #store first pattern 
+		  jal counter	#stall and count 
+		  sw   r8  r1   #store second pattern
+		  jal counter	#stall and count
+		  j recalc		#after one blink check the switches		     
+
+counter:  and  r6  zero		# initialize the counter
+cntloop:  beq r6 r7 return 	# if equal jump to 'return'
+		  andi r6          	# increment counter 
+		  j cntloop		   	# go back to decision for counting
+return:	  jr				# jump back to loop where we came from
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
