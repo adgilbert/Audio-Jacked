@@ -11,6 +11,9 @@ This project was built by making a Compact RISC 32 bit processor and then design
 The assembly code was built using a assembler written in java. This can be found in the Assembler folder as well as more information on the instruction architecture.
 
 This project requires a VMOD touch screen, PMOD Microphone, and Audio Jack from Digilent. The links are provided below. On a Spartan6 FPGA board the microphone should be connected to the first set of connectors and the speaker to the second. 
+
+The code for the VMOD touch screen was based off of the sample project provided by digilent.
+
 Mic
 http://www.digilentinc.com/Products/Detail.cfm?Prod=PMOD-MIC
 Audio Jack
